@@ -2,6 +2,7 @@
   "name": "shared-dependencies",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "start:publisher": "cd publisher && npm run start",
     "start:consumer": "cd consumer && npm run start"

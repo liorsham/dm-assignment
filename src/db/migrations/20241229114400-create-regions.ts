@@ -1,8 +1,8 @@
 'use strict';
-import { QueryInterface, Sequelize, DataTypes } from 'sequelize';
+const { QueryInterface, DataTypes } = require('sequelize');
 
-module.exports = {
-  up: async (queryInterface: QueryInterface, Sequelize: typeof DataTypes) => {
+export default{
+  up: async (queryInterface: typeof QueryInterface, Sequelize: typeof DataTypes) => {
     await queryInterface.createTable('regions', {
       region_code: {
         type: Sequelize.INTEGER,
@@ -14,7 +14,7 @@ module.exports = {
       },
     });
   },
-  down: async (queryInterface: QueryInterface) => {
+  down: async (queryInterface: typeof QueryInterface) => {
     await queryInterface.dropTable('regions');
   },
 };

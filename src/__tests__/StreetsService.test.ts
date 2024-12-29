@@ -1,6 +1,6 @@
-import { StreetsService } from '../StreetsService';
+import { StreetsService } from '../israeliStreets/StreetsService';
 import axios from 'axios';
-import { City } from '../cities';
+import { City } from '../israeliStreets/cities';
 
 // Mock axios
 jest.mock('axios');

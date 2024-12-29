@@ -47,11 +47,18 @@ project-root/
 ### Steps to Run
 1. **Clone the repository**:
    ```bash
-   git clone <repository-url>
-   cd project-root
+   git clone git@github.com:liorsham/dm-assignment.git
+   cd dm-assignment
    ```
 
-2. **Build and start all services**:
+2. **Build the published**:
+   ```bash
+    cd src/publisher
+    npm run build
+    cd ../..
+    ```
+    
+3. **Build and start all services**:
    ```bash
    docker-compose up --build
    ```
@@ -64,7 +71,8 @@ The publisher publishes city data to RabbitMQ.
 ### Example Command
 Run the following command to publish city information (use "" if the city has space in it):
 ```bash
-docker exec -it publisher npm start <City Name>
+cd src/publisher
+npm run publish <City Name>
 ```
 
 ### Expected Output
@@ -100,7 +108,7 @@ The consumer service automatically starts when you run `docker-compose up`.
 
 2. Publish a city message:
    ```bash
-   docker exec -it publisher npm start Ashdod
+   npm run publish Ashdod
    ```
 
 3. Verify the consumer:

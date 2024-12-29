@@ -42,13 +42,14 @@ services:
       - ./src/db:/app/src/db
       - ./src/db/package.json:/app/package.json
       - ./tsconfig.json:/app/tsconfig.json
-      - ./sequelize.config.js:/app/config/config.js
+      - ./sequelize.config.cjs:/app/config/config.cjs  
+      - ./src/db/migrations:/app/migrations
     depends_on:
       - postgres
     environment:
       DATABASE_URL: postgres://user:password@postgres:5432/streets_db
       NODE_ENV: development
-    command: sh -c "npm install && npm run migrate"
+    command: sh -c "npm install && npx sequelize-cli db:migrate --config /app/config/config.cjs"
 
   consumer:
     image: node:16
@@ -67,9 +68,9 @@ services:
         condition: service_started
     command: >
       sh -c "cd src && npm install &&
-             cd consumer && npm install && npm run build &&
-             cd /app/dist && npm install &&
-             cd consumer && node index.js"
+            cd consumer && npm install && npm run build &&
+            cd /app/dist && npm install &&
+            cd consumer && node index.js"
 
 volumes:
   postgres_data:

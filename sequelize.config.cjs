@@ -1,5 +1,5 @@
+require('ts-node/register');
 const path = require('path');
-
 module.exports = {
   development: {
     username: 'user',
