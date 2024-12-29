@@ -54,6 +54,7 @@ project-root/
 2. **Build the published**:
    ```bash
     cd src/publisher
+    npm install
     npm run build
     cd ../..
     ```
