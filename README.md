@@ -14,31 +14,6 @@ This project is a data management system for inserting street data in Israel int
 - **PostgreSQL** (database)
 - **Docker** (for containerization)
 
-## Project Structure
-```
-project-root/
-├── docker-compose.yml         # Docker configuration for RabbitMQ and PostgreSQL
-├── publisher/                 # Publisher service
-│   ├── src/
-│   │   ├── index.ts           # Main file for publishing city data
-│   │   └── StreetsService.ts  # Fetches street data from external API
-│   ├── package.json           # Publisher dependencies
-│   ├── tsconfig.json          # TypeScript configuration
-├── consumer/                  # Consumer service
-│   ├── src/
-│   │   ├── index.ts           # Main file for consuming city data
-│   │   ├── models/            # Sequelize models for database tables
-│   │   │   ├── city.ts        # City model
-│   │   │   ├── region.ts      # Region model
-│   │   │   └── street.ts      # Street model
-│   ├── package.json           # Consumer dependencies
-│   ├── tsconfig.json          # TypeScript configuration
-├── migration/                 # Migration service for database schema
-│   ├── migrations/            # Sequelize migration files
-│   ├── package.json           # Migration dependencies
-│   ├── tsconfig.json          # TypeScript configuration
-└── README.md                  # Project documentation
-```
 
 ## Setup and Installation
 ### Prerequisites
@@ -122,9 +97,4 @@ The consumer service automatically starts when you run `docker-compose up`.
   Ensure RabbitMQ is running and accessible on port `5672`.
 - **Database Connection Issues**:
   Ensure PostgreSQL is running and accessible on port `5432`.
-- **Module Not Found Errors**:
-  Verify the file paths and `tsconfig.json` settings.
-
-## License
-This project is licensed under the MIT License.
 
